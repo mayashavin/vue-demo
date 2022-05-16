@@ -1,35 +1,7 @@
 <template>
-  <transition-group name="list" tag="ul">
-    <!-- <ul> -->
-    <li v-for="(todo, index) in todos" :key="todo.id" class="list-item">
-      <label :for="getTodoInputId(todo.id)" @click="todo.done = !todo.done">
-        <input
-          type="checkbox"
-          :id="getTodoInputId(todo.id)"
-          v-model="todo.done"
-        />
-        {{ todo.title }}
-      </label>
-      <button @click="removeTodo(index)">X</button>
-    </li>
-    <!-- </ul> -->
-  </transition-group>
+  <div>Todo</div>
 </template>
 <script lang="ts" setup>
-const props = defineProps({
-  todos: {
-    type: Array,
-    default: () => [],
-  },
-});
-
-const emit = defineEmits(["removeTodo"]);
-
-const getTodoInputId = (id: string) => `todo-${id}`;
-
-const removeTodo = (index: number) => {
-  emit("removeTodo", index);
-};
 </script>
 <style scoped>
 ul {
